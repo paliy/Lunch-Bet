@@ -4,6 +4,7 @@ import useWinner from '../hooks/useWinner';
 import LunchForm from '../components/LunchForm/LunchForm';
 import ParticipantList from '../components/ParticipantList/ParticipantList';
 import WinnerDisplay from '../components/Winner/WinnerDisplay';
+import Button from '../atoms/Button/button';
 
 const LunchBetApp = () => {
   const { participants, addParticipant, removeParticipant } = useParticipants();
@@ -17,7 +18,9 @@ const LunchBetApp = () => {
         participants={participants}
         removeParticipant={removeParticipant}
       />
-      <button className='winner-button' onClick={selectWinner}>Select Winner</button>
+      <Button onClick={selectWinner} size="large" variant="primary">
+        Select Winner
+      </Button>
       <WinnerDisplay winner={winner} />
     </>
   );

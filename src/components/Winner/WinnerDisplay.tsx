@@ -17,7 +17,7 @@ const WinnerDisplay = ({ winner }: DisplayWinnerType) => {
   }, [winner]);
 
   return (
-    <div>
+    <div className='winner-wrapper'>
       {showConfetti && <Confetti data-testid="confetti" />}
       {winner ? (
         <h2 data-testid="winner-message">{winner} - pays for lunch!</h2>
