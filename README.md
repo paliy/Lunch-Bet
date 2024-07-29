@@ -2,7 +2,8 @@
 
 Welcome to the **Lunch Bet App**! This application helps you manage a lunch bet by allowing you to add participants, set their contributions, select a winner randomly based on their contributions, and display the result with a bit of confetti animation.
 
-![lunch-app](https://github.com/user-attachments/assets/60fed76e-3579-48be-909d-64a778c392e0)
+![lunch-app](https://github.com/user-attachments/assets/0119fba1-3a93-4870-899f-c30a7d1fbd80)
+
 
 ## Features
 
