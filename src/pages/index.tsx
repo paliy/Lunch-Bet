@@ -1,11 +1,11 @@
-import useParticipants from './hooks/useParticipants';
-import useWinner from './hooks/useWinner';
+import useParticipants from '../hooks/useParticipants';
+import useWinner from '../hooks/useWinner';
 
-import LunchForm from './components/LunchForm/LunchForm';
-import ParticipantList from './components/ParticipantList/ParticipantList';
-import WinnerDisplay from './components/Winner/WinnerDisplay';
+import LunchForm from '../components/LunchForm/LunchForm';
+import ParticipantList from '../components/ParticipantList/ParticipantList';
+import WinnerDisplay from '../components/Winner/WinnerDisplay';
 
-const App = () => {
+const LunchBetApp = () => {
   const { participants, addParticipant, removeParticipant } = useParticipants();
   const { winner, selectWinner } = useWinner(participants);
 
@@ -23,4 +23,4 @@ const App = () => {
   );
 };
 
-export default App;
+export default LunchBetApp;
