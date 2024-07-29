@@ -1,6 +1,6 @@
 import { ParticipantListType } from '../../types/types';
 
-const ParticipantList = ({ participants, removeParticipant }: ParticipantListType & { removeParticipant: (index: number) => void }) => {
+const ParticipantList = ({ participants, removeParticipant }: ParticipantListType) => {
   return (
     <ul>
       {participants.length === 0 ? (
