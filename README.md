@@ -55,10 +55,10 @@ Open your browser and go to `http://localhost:3000` to view the application.
 
 ```bash
   src: Contains the source code of the application.
+    atoms: Contains small components like button or input.
     components: Contains React components for the application.
     hooks: Contains custom hooks.
+    pages: Main application component.
     types: Contains TypeScript types.
-    App.tsx: Main application component.
   public: Contains static files.
-  tests: Contains test files for the application.
 ```
