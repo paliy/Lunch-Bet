@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 
 import { LunchFormType } from '../../types/types';
 
-import Button from '../../atoms/Button/button';
+import Button from '../../atoms/Button/Button';
 import NumberInput from '../../atoms/NumberInput/NumberInput';
 import TextInput from '../../atoms/TextInput/TextInput';
 

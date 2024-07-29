@@ -1,4 +1,4 @@
-import Button from '../../atoms/Button/button';
+import Button from '../../atoms/Button/Button';
 import { ParticipantListType } from '../../types/types';
 
 const ParticipantList = ({ participants, removeParticipant }: ParticipantListType) => {
