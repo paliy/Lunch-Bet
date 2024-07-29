@@ -23,7 +23,7 @@ describe('WinnerDisplay', () => {
   it('renders winner message when winner is provided', () => {
     render(<WinnerDisplay winner="John Doe" />);
 
-    expect(screen.getByTestId(winnerMessage)).toHaveTextContent('John Doe pays for lunch!');
+    expect(screen.getByTestId(winnerMessage)).toHaveTextContent('John Doe - pays for lunch!');
     expect(screen.getByTestId(confetti)).toBeInTheDocument();
   });
 
