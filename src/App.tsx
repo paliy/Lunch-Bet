@@ -10,7 +10,7 @@ const App = () => {
   const { winner, selectWinner } = useWinner(participants);
 
   return (
-    <div>
+    <>
       <h1>Lunch Bet</h1>
       <LunchForm addParticipant={addParticipant} />
       <ParticipantList
@@ -19,7 +19,7 @@ const App = () => {
       />
       <button className='winner-button' onClick={selectWinner}>Select Winner</button>
       <WinnerDisplay winner={winner} />
-    </div>
+    </>
   );
 };
 
