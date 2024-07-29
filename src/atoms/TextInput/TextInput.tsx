@@ -1,24 +1,11 @@
-import React from 'react';
+import React, { forwardRef } from 'react';
 
-interface TextInputProps {
-  value: string;
-  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
-  placeholder: string;
-  required?: boolean;
-  'data-testid'?: string;
-}
+interface TextInputProps extends React.InputHTMLAttributes<HTMLInputElement> { }
 
-const TextInput = ({ value, onChange, placeholder, required = false, 'data-testid': dataTestId }: TextInputProps) => {
-  return (
-    <input
-      type="text"
-      value={value}
-      onChange={onChange}
-      placeholder={placeholder}
-      required={required}
-      data-testid={dataTestId}
-    />
-  );
-};
+const TextInput = forwardRef<HTMLInputElement, TextInputProps>((props, ref) => {
+  return <input type="text" ref={ref} {...props} />;
+});
+
+TextInput.displayName = 'TextInput';
 
 export default TextInput;

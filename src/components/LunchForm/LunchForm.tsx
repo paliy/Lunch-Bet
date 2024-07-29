@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React from 'react';
+import { useForm, SubmitHandler } from 'react-hook-form';
 
 import { LunchFormType } from '../../types/types';
 
@@ -6,31 +7,29 @@ import Button from '../../atoms/Button/Button';
 import NumberInput from '../../atoms/NumberInput/NumberInput';
 import TextInput from '../../atoms/TextInput/TextInput';
 
-const LunchForm = ({ addParticipant }: LunchFormType) => {
-  const [name, setName] = useState('');
-  const [lunchPrice, setLunchPrice] = useState('');
+type FormValues = {
+  name: string;
+  lunchPrice: number;
+};
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    addParticipant(name, parseFloat(lunchPrice));
-    setName('');
-    setLunchPrice('');
+const LunchForm = ({ addParticipant }: LunchFormType) => {
+  const { register, handleSubmit, reset } = useForm<FormValues>();
+
+  const onSubmit: SubmitHandler<FormValues> = (data) => {
+    addParticipant(data.name, data.lunchPrice);
+    reset();
   };
 
   return (
-    <form onSubmit={handleSubmit} data-testid="lunch-form">
+    <form onSubmit={handleSubmit(onSubmit)} data-testid="lunch-form">
       <TextInput
-        value={name}
-        onChange={(e) => setName(e.target.value)}
+        {...register('name', { required: true })}
         placeholder='Name'
-        required
         data-testid="name-input"
       />
       <NumberInput
-        value={lunchPrice}
-        onChange={(e) => setLunchPrice(e.target.value)}
+        {...register('lunchPrice', { required: true, valueAsNumber: true })}
         placeholder='Lunch Price'
-        required
         data-testid="price-input"
       />
       <Button

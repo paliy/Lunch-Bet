@@ -1,24 +1,11 @@
-import React from 'react';
+import React, { forwardRef } from 'react';
 
-interface NumberInputProps {
-  value: string;
-  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
-  placeholder: string;
-  required?: boolean;
-  'data-testid'?: string;
-}
+interface NumberInputProps extends React.InputHTMLAttributes<HTMLInputElement> { }
 
-const NumberInput = ({ value, onChange, placeholder, required = false, 'data-testid': dataTestId }: NumberInputProps) => {
-  return (
-    <input
-      type="number"
-      value={value}
-      onChange={onChange}
-      placeholder={placeholder}
-      required={required}
-      data-testid={dataTestId}
-    />
-  );
-};
+const NumberInput = forwardRef<HTMLInputElement, NumberInputProps>((props, ref) => {
+  return <input type="number" ref={ref} {...props} />;
+});
+
+NumberInput.displayName = 'NumberInput';
 
 export default NumberInput;
