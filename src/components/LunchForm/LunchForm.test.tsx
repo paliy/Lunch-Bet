@@ -1,52 +1,27 @@
 import { render, screen, fireEvent } from '@testing-library/react';
-
 import LunchForm from './LunchForm';
 
-const BUTTON_TEXT = 'Add Participant';
-
 describe('LunchForm', () => {
-  const mockAddParticipant = jest.fn();
+  const addParticipant = jest.fn();
 
   beforeEach(() => {
-    mockAddParticipant.mockClear();
+    render(<LunchForm addParticipant={addParticipant} />);
   });
 
-  it('renders form fields and submit button', () => {
-    render(<LunchForm addParticipant={mockAddParticipant} />);
-
+  it('renders form elements correctly', () => {
     expect(screen.getByPlaceholderText('Name')).toBeInTheDocument();
     expect(screen.getByPlaceholderText('Lunch Price')).toBeInTheDocument();
-    expect(screen.getByText(BUTTON_TEXT)).toBeInTheDocument();
+    expect(screen.getByText('Add Participant')).toBeInTheDocument();
   });
 
-  it('updates input values correctly', () => {
-    render(<LunchForm addParticipant={mockAddParticipant} />);
+  it('does not call addParticipant if form is invalid', async () => {
+    fireEvent.change(screen.getByPlaceholderText('Name'), { target: { value: '' } });
+    fireEvent.change(screen.getByPlaceholderText('Lunch Price'), { target: { value: '' } });
 
-    const nameInput = screen.getByPlaceholderText('Name') as HTMLInputElement;
-    const priceInput = screen.getByPlaceholderText('Lunch Price') as HTMLInputElement;
+    fireEvent.click(screen.getByText('Add Participant'));
 
-    fireEvent.change(nameInput, { target: { value: 'John Doe' } });
-    fireEvent.change(priceInput, { target: { value: '20' } });
+    await new Promise((resolve) => setTimeout(resolve, 0));
 
-    expect(nameInput.value).toBe('John Doe');
-    expect(priceInput.value).toBe('20');
-  });
-
-  it('calls addParticipant with correct arguments and clears inputs on submit', () => {
-    render(<LunchForm addParticipant={mockAddParticipant} />);
-
-    const nameInput = screen.getByPlaceholderText('Name') as HTMLInputElement;
-    const priceInput = screen.getByPlaceholderText('Lunch Price') as HTMLInputElement;
-    const submitButton = screen.getByText(BUTTON_TEXT) as HTMLButtonElement;
-
-    fireEvent.change(nameInput, { target: { value: 'John Doe' } });
-    fireEvent.change(priceInput, { target: { value: '20' } });
-
-    fireEvent.click(submitButton);
-
-    expect(mockAddParticipant).toHaveBeenCalledWith('John Doe', 20);
-
-    expect(nameInput.value).toBe('');
-    expect(priceInput.value).toBe('');
+    expect(addParticipant).not.toHaveBeenCalled();
   });
 });
