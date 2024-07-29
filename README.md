@@ -45,7 +45,7 @@ Make sure you have the following installed:
 ### Prerequisites
 
 To start the development server, run: `npm run dev`.
-Open your browser and go to `http://localhost:3000` to view the application.
+Open your browser and go to `http://localhost:5174` to view the application.
 
 ### Prerequisites
 
