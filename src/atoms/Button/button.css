@@ -37,3 +37,8 @@
 .btn-secondary:hover {
   background-color: #5a6268;
 }
+
+.btn:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
+}

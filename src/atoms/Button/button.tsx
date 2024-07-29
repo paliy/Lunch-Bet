@@ -8,9 +8,18 @@ interface ButtonProps {
   children: React.ReactNode;
   'data-testid'?: string;
   type?: 'button' | 'submit' | 'reset';
+  disabled?: boolean;
 }
 
-const Button = ({ size, variant, onClick, children, 'data-testid': dataTestId, type = 'button' }: ButtonProps) => {
+const Button = ({
+  size,
+  variant,
+  onClick,
+  children,
+  'data-testid': dataTestId,
+  type = 'button',
+  disabled = false,
+}: ButtonProps) => {
   const classNames = `btn btn-${size} btn-${variant}`;
 
   return (
@@ -18,6 +27,7 @@ const Button = ({ size, variant, onClick, children, 'data-testid': dataTestId, t
       type={type}
       className={classNames}
       onClick={onClick}
+      disabled={disabled}
       data-testid={dataTestId}
     >
       {children}

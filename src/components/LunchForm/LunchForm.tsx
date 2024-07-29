@@ -33,7 +33,12 @@ const LunchForm = ({ addParticipant }: LunchFormType) => {
         required
         data-testid="price-input"
       />
-      <Button type='submit' size='medium' variant='primary' data-testid="submit-button">
+      <Button
+        type='submit'
+        size='medium'
+        variant='primary'
+        data-testid="submit-button"
+      >
         Add Participant
       </Button>
     </form>

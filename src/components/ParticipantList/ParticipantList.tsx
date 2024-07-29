@@ -1,3 +1,4 @@
+import Button from '../../atoms/Button/button';
 import { ParticipantListType } from '../../types/types';
 
 const ParticipantList = ({ participants, removeParticipant }: ParticipantListType) => {
@@ -9,7 +10,14 @@ const ParticipantList = ({ participants, removeParticipant }: ParticipantListTyp
         participants.map((participant, index) => (
           <li key={index}>
             {participant.name} - ${participant.lunchPrice.toFixed(2)}
-            <button onClick={() => removeParticipant(index)}>Remove</button>
+            <Button
+              onClick={() => removeParticipant(index)}
+              size='medium'
+              variant='primary'
+              data-testid="remove-button"
+            >
+              Remove
+            </Button>
           </li>
         ))
       )}

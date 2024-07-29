@@ -18,7 +18,12 @@ const LunchBetApp = () => {
         participants={participants}
         removeParticipant={removeParticipant}
       />
-      <Button onClick={selectWinner} size="large" variant="primary">
+      <Button
+        onClick={selectWinner}
+        size="large"
+        variant="primary"
+        disabled={participants.length === 0}
+      >
         Select Winner
       </Button>
       <WinnerDisplay winner={winner} />
