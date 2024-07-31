@@ -35,7 +35,7 @@ Make sure you have the following installed:
 1. **Clone the repository:**
 
    ```bash
-   git clone https://github.com/your-username/lunch-bet-app.git
+   git clone https://github.com/paliy/Lunch-Bet.git
 
    ```
 
@@ -53,15 +53,3 @@ Open your browser and go to `http://localhost:5174` to view the application.
 ### Prerequisites
 
 `npm test`
-
-### Prerequisites
-
-```bash
-  src: Contains the source code of the application.
-    atoms: Contains small components like button or input.
-    components: Contains React components for the application.
-    hooks: Contains custom hooks.
-    pages: Main application component.
-    types: Contains TypeScript types.
-  public: Contains static files.
-```
